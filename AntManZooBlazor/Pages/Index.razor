@@ -7,84 +7,15 @@
 <p>Venez voir tous nos animaux tous mignons !</p>
 
 <div class="d-flex flex-wrap gap-5">
-    <div class="card" style="width: 18rem;">
-        <img src="https://lemagdesanimaux.ouest-france.fr/images/dossiers/2019-01/panthere-noire-155342.jpg" class="card-img-top" alt="une pantère noire qui se repose">
-        <div class="card-body">
-            <h5 class="card-title">"Mig" La panthère</h5>
-            <p class="card-text">Une superbe panthère noire au pelage doux.</p>
-            <a href="#" class="btn btn-primary">Voir</a>
+    @foreach (var animal in AnimalsList)
+    {
+        <div class="card" style="width: 18rem;">
+            <img src="@animal.ImageLink">
+            <div class="card-body">
+                <h5 class="card-title">@animal.Name</h5>
+                <p class="card-text">@animal.Description</p>
+                <a href="#" class="btn btn-primary">Voir</a>
+            </div>
         </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="https://lemagdesanimaux.ouest-france.fr/images/dossiers/2019-01/panthere-noire-155342.jpg" class="card-img-top" alt="une pantère noire qui se repose">
-        <div class="card-body">
-            <h5 class="card-title">"Mig" La panthère</h5>
-            <p class="card-text">Une superbe panthère noire au pelage doux.</p>
-            <a href="#" class="btn btn-primary">Voir</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="https://lemagdesanimaux.ouest-france.fr/images/dossiers/2019-01/panthere-noire-155342.jpg" class="card-img-top" alt="une pantère noire qui se repose">
-        <div class="card-body">
-            <h5 class="card-title">"Mig" La panthère</h5>
-            <p class="card-text">Une superbe panthère noire au pelage doux.</p>
-            <a href="#" class="btn btn-primary">Voir</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="https://lemagdesanimaux.ouest-france.fr/images/dossiers/2019-01/panthere-noire-155342.jpg" class="card-img-top" alt="une pantère noire qui se repose">
-        <div class="card-body">
-            <h5 class="card-title">"Mig" La panthère</h5>
-            <p class="card-text">Une superbe panthère noire au pelage doux.</p>
-            <a href="#" class="btn btn-primary">Voir</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="https://lemagdesanimaux.ouest-france.fr/images/dossiers/2019-01/panthere-noire-155342.jpg" class="card-img-top" alt="une pantère noire qui se repose">
-        <div class="card-body">
-            <h5 class="card-title">"Mig" La panthère</h5>
-            <p class="card-text">Une superbe panthère noire au pelage doux.</p>
-            <a href="#" class="btn btn-primary">Voir</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="https://lemagdesanimaux.ouest-france.fr/images/dossiers/2019-01/panthere-noire-155342.jpg" class="card-img-top" alt="une pantère noire qui se repose">
-        <div class="card-body">
-            <h5 class="card-title">"Mig" La panthère</h5>
-            <p class="card-text">Une superbe panthère noire au pelage doux.</p>
-            <a href="#" class="btn btn-primary">Voir</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="https://lemagdesanimaux.ouest-france.fr/images/dossiers/2019-01/panthere-noire-155342.jpg" class="card-img-top" alt="une pantère noire qui se repose">
-        <div class="card-body">
-            <h5 class="card-title">"Mig" La panthère</h5>
-            <p class="card-text">Une superbe panthère noire au pelage doux.</p>
-            <a href="#" class="btn btn-primary">Voir</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="https://lemagdesanimaux.ouest-france.fr/images/dossiers/2019-01/panthere-noire-155342.jpg" class="card-img-top" alt="une pantère noire qui se repose">
-        <div class="card-body">
-            <h5 class="card-title">"Mig" La panthère</h5>
-            <p class="card-text">Une superbe panthère noire au pelage doux.</p>
-            <a href="#" class="btn btn-primary">Voir</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="https://lemagdesanimaux.ouest-france.fr/images/dossiers/2019-01/panthere-noire-155342.jpg" class="card-img-top" alt="une pantère noire qui se repose">
-        <div class="card-body">
-            <h5 class="card-title">"Mig" La panthère</h5>
-            <p class="card-text">Une superbe panthère noire au pelage doux.</p>
-            <a href="#" class="btn btn-primary">Voir</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img src="https://lemagdesanimaux.ouest-france.fr/images/dossiers/2019-01/panthere-noire-155342.jpg" class="card-img-top" alt="une pantère noire qui se repose">
-        <div class="card-body">
-            <h5 class="card-title">"Mig" La panthère</h5>
-            <p class="card-text">Une superbe panthère noire au pelage doux.</p>
-            <a href="#" class="btn btn-primary">Voir</a>
-        </div>
-    </div>
+    }
 </div>

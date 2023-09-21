@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AntManZooClassLibrary.Datas
 {
-    internal class InitialAnimal
+    public class InitialAnimal
     {
         public static readonly List<Animal> animals = new List<Animal>()
         {
