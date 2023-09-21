@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace AntManZooClassLibrary.Datas
 {
-    internal class InitialAnimal
+    public class InitialAnimal
     {
         public static readonly List<Animal> animals = new List<Animal>()
         {
-            new Animal{ Id = 1, Name = "Balto", Age = 6, Description = "Balto le héros !", ImageLink = null, Species = Species.Loup },
+            new Animal{ Id = 1, Name = "Balto", Age = 6, Description = "Balto le héros !", ImageLink = "https://www.sciencesetavenir.fr/assets/img/2023/04/25/cover-r4x3w1200-6447e451a984d-balto-kasson.jpg", Species = Species.Loup },
 
             new Animal{ Id = 2, Name = "Ponyta", Age = 12, Description = "Très beau cheval de feu", ImageLink = null, Species = Species.Cheval },
 
