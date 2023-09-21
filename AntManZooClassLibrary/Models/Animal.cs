@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace AntManZooClassLibrary.Models
 {
-    internal class Animal
+    public class Animal
     {
-
-
-
+        public int Id { get; set; }
+        public string? Name { get; set; }
     }
 }
