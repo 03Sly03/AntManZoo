@@ -9,5 +9,6 @@ namespace AntManZooClassLibrary.Models
     internal class Animal
     {
 
+
     }
 }
