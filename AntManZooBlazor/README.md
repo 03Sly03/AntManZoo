@@ -1,12 +1,22 @@
 # Liste de quoisque j'ai fait pour le front
 
+## Suppression des pages et composants supperflu
+
+- fetchdata
+- counter
+- surveyprompt
+
 ## Création des pages
 
-- AddAnimal
-- login
+- AddAnimal (juste un titre et une phrase affiché)
+- login (juste un titre et une phrase affiché)
 
-## Ajout des liens
+## Ajout des liens vers les pages
 
 - dans le NavMenu
 
-## Modification de la Home pour afficher une liste de "cards" en dur
+## Modification de la Home
+
+- Titre
+- Phrase d'accroche
+- Liste de "cards" animal en dur (bootstrap)
