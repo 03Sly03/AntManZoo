@@ -8,3 +8,12 @@
 
 	- Création d'une InitialAnimal
 
+# 2Eme Etape
+
+	- Création de l'Application DbContext
+
+	- Création d'InitialStaff
+
+	- Création de IRepository
+
+	- Création de StaffRepository
