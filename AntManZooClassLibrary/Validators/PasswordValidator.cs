@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AntManZooClassLibrary.Validators
 {
-    internal class PasswordValidator : ValidationAttribute
+    public class PasswordValidator : ValidationAttribute
     {
         public override bool IsValid(object? value)
         {
