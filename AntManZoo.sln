@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntManZooBlazor", "AntManZooBlazor\AntManZooBlazor.csproj", "{AD3328AA-918E-4380-AF91-AD02A7861A1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntManZooBlazor", "AntManZooBlazor\AntManZooBlazor.csproj", "{AD3328AA-918E-4380-AF91-AD02A7861A1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntManZooApi", "AntManZooApi\AntManZooApi.csproj", "{BF63053A-2A93-439F-A8D2-8FF3A0CA5006}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntManZooApi", "AntManZooApi\AntManZooApi.csproj", "{BF63053A-2A93-439F-A8D2-8FF3A0CA5006}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntManZooClassLibrary", "AntManZooClassLibrary\AntManZooClassLibrary.csproj", "{117970AD-CCB7-4D6D-B21E-2378BBD1669C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntManZooClassLibrary", "AntManZooClassLibrary\AntManZooClassLibrary.csproj", "{117970AD-CCB7-4D6D-B21E-2378BBD1669C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
