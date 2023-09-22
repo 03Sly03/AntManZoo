@@ -7,7 +7,7 @@ namespace AntManZooApi.Controllers
 {
     [Route("api/animal")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class AnimalController : ControllerBase
     {
         private readonly IRepository<Animal> _animalRepository;
