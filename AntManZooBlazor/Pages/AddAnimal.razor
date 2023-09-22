@@ -1,9 +1,64 @@
-﻿@page "/add-animal"
+﻿@page "/add-animal";
+@using AntManZooClassLibrary.Models;
+@using AntManZooBlazor.Services;
+@inject NavigationManager NavManager;
 
-<h2>Add an animal</h2>
+<h2>Ajouter un animal</h2>
 
-<p>Ici le formulaire d'enregistrement d'un animal.</p>
+
+<EditForm OnValidSubmit="SubmitAnimal" Model="AnimalToAdd">
+    <div class="form-row">
+        <div class="form-group" style="width:100%">
+            <label for="name">Nom :</label>
+            <InputText class="form-control" id="name" placeholder="Saisir le nom" @bind-Value="AnimalToAdd!.Name" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group" style="width:100%">
+            <label for="age">Age :</label>
+            <InputNumber class="form-control" id="age" placeholder="Saisir les ingrédients" @bind-Value="AnimalToAdd.Age" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group" style="width:100%">
+            <label for="description">Description</label>
+            <InputTextArea class="form-control" id="description" placeholder="Décrire l'animal ici..." @bind-Value="AnimalToAdd.Description" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group" style="width:100%">
+            <label for="imageLink">Lien vers l'image:</label>
+            <InputText class="form-control" id="imageLink" placeholder="Saisir le lien vers l'image" @bind-Value="AnimalToAdd.ImageLink" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <label for="favoriteColor">Espèce :</label>
+            <InputSelect class="form-control" id="favoriteColor" placeholder="Saisir une adresse email" @bind-Value="AnimalToAdd.Species">
+                @foreach (Species speciesToSelect in Enum.GetValues(typeof(Species)))
+                {
+                    <option value="@speciesToSelect">@(speciesToSelect != Species.None ? speciesToSelect : "Selectionner une espèce")</option>
+                }
+            </InputSelect>
+        </div>
+    </div>
+    <div class="form-row">
+        <button type="submit" class="btn btn-primary">Validation</button>
+    </div>
+</EditForm>
 
 @code {
+    private Animal? AnimalToAdd { get; set; } = new Animal();
 
+    [Inject]
+    public IAnimalService AnimalService { get; set; }
+
+    private void SubmitAnimal()
+    {
+        if (AnimalToAdd != null)
+        {
+            AnimalService.Post(AnimalToAdd);
+            NavManager.NavigateTo("/");
+        }
+    }
 }
