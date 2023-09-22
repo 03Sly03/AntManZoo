@@ -23,6 +23,17 @@ namespace AntManZooApi.Controllers
             return Ok(await _animalRepository.GetAll());
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Recuperation(int id)
+        {
+            var animal = await _animalRepository.GetById(id);
+            if (animal == null)
+            {
+                return NotFound("Animal non trouvé");
+            }
+            return Ok(animal);
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddAnimal([FromBody] Animal animal)
         {

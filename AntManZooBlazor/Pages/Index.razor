@@ -15,6 +15,7 @@
                 <h5 class="card-title">@animal.Name</h5>
                 <p class="card-text">@animal.Description</p>
                 <a href="/animal/@animal.Id" class="btn btn-primary">Voir</a>
+                <a @onclick="() => Delete(animal.Id)" class="btn btn-danger">Supprimer</a>
             </div>
         </div>
     }

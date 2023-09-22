@@ -9,7 +9,8 @@ namespace AntManZooBlazor.Pages
         [Inject]
         public IAnimalService AnimalService { get; set; }
         private string? LoadingMessage { get; set; }
-        private List<Animal> AnimalsList { get; set; } = new List<Animal>();
+        [Parameter]
+        public List<Animal> AnimalsList { get; set; } = new List<Animal>();
 
         protected override async Task OnInitializedAsync()
         {
@@ -18,5 +19,14 @@ namespace AntManZooBlazor.Pages
             LoadingMessage = "";
         }
         
+        public void Delete(int id)
+        {
+            AnimalService.Delete(id);
+            var animal = AnimalsList.FirstOrDefault(x => x.Id == id);
+            if (animal != null)
+            {
+                AnimalsList.Remove(animal);
+            }
+        }
     }
 }

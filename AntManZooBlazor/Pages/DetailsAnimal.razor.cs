@@ -7,7 +7,6 @@ namespace AntManZooBlazor.Pages
 {
     public partial class DetailsAnimal
     {
-        private string? LoadingMessage { get; set; }
         private Animal? MyAnimal { get; set; }
 
         [Parameter]
@@ -17,9 +16,7 @@ namespace AntManZooBlazor.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            LoadingMessage = "Récupération des données de l'animal";
             MyAnimal = await AnimalService.Get(Id);
-            LoadingMessage = "";
         }
     }
 }

@@ -25,9 +25,22 @@ namespace AntManZooBlazor.Services
             return result!;
         }
 
-        public Task<Animal?> Post(Animal animal)
+        public async Task<bool> Post(Animal animal)
         {
-            throw new NotImplementedException();
+            var result = await _httpClient.PostAsJsonAsync(_baseApiRoute, animal);
+            return result.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> Put(Animal animal)
+        {
+            var result = await _httpClient.PutAsJsonAsync(_baseApiRoute + $"/{animal.Id}", animal);
+            return result.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> Delete(int id)
+        {
+            var result = await _httpClient.DeleteAsync(_baseApiRoute + $"/{id}");
+            return result.IsSuccessStatusCode;
         }
     }
 }

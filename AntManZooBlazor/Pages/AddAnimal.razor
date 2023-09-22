@@ -49,6 +49,8 @@
 
 @code {
     private Animal? AnimalToAdd { get; set; } = new Animal();
+    [Parameter]
+    public List<Animal> AnimalList { get; set; } = new List<Animal>();
 
     [Inject]
     public IAnimalService AnimalService { get; set; }
@@ -58,6 +60,8 @@
         if (AnimalToAdd != null)
         {
             AnimalService.Post(AnimalToAdd);
+            AnimalList.Add(AnimalToAdd);
+            StateHasChanged();
             NavManager.NavigateTo("/");
         }
     }

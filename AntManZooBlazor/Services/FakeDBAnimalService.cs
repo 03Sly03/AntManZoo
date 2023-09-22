@@ -3,7 +3,7 @@ using AntManZooClassLibrary.Models;
 
 namespace AntManZooBlazor.Services
 {
-    public class FakeDBAnimalService : IAnimalService
+    public class FakeDBAnimalService
     {
         private List<Animal> _animals = InitialAnimal.animals;
         private int _lastId = 100;
