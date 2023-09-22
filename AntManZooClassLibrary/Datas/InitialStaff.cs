@@ -11,7 +11,7 @@ namespace AntManZooClassLibrary.Datas
     {
         public static readonly List<Staff> staffs = new List<Staff>()
         {
-            new Staff{ Id = 1, Firstname = "Anthony", Lastname = "Douchet", Email = "anthony.douchet@hotmail.fr", Password = null}
+            new Staff{ Id = 1, Firstname = "Anthony", Lastname = "DOUCHET", Email = "anthony.douchet@hotmail.fr", Password = "UEFzczEyMyEhY2zDqSBzdXBlciBzZWNyw6h0ZQ=="}
         };
     }
 }
