@@ -1,0 +1,23 @@
+﻿@page "/animal/{id:int}";
+@* @using AntManZooBlazor.Services;
+@inject FakeDBAnimalService AnimalService; *@
+
+<a href="/" class="btn btn-primary">Retour</a>
+
+@if (MyAnimal == null)
+{
+    <span>Chargement...</span>
+}
+else
+{
+    <h2 class="text-center text-uppercase fs-1 mb-5">@MyAnimal.Name</h2>
+
+    <div class="card mb-3 border-0">
+        <img src="@MyAnimal.ImageLink" class="card-img-top" alt="..." style="height: 50vh; object-fit: contain">
+        <div class="card-body text-center mt-5">
+            <h5 class="card-title">@MyAnimal.Name - @MyAnimal.Age an(s)</h5>
+            <h5 class="card-title">Espèce : @MyAnimal.Species</h5>
+            <p class="card-text">@MyAnimal.Description</p>
+        </div>
+    </div>
+}
