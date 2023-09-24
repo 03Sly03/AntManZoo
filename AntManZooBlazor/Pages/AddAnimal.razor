@@ -48,20 +48,20 @@
 </EditForm>
 
 @code {
-    private Animal? AnimalToAdd { get; set; } = new Animal();
-    [Parameter]
-    public List<Animal> AnimalList { get; set; } = new List<Animal>();
-
     [Inject]
     public IAnimalService AnimalService { get; set; }
+
+    [CascadingParameter(Name = "animalsList")]
+    public List<Animal> AnimalsList { get; set; }
+
+    private Animal? AnimalToAdd { get; set; } = new Animal();
 
     private void SubmitAnimal()
     {
         if (AnimalToAdd != null)
         {
             AnimalService.Post(AnimalToAdd);
-            AnimalList.Add(AnimalToAdd);
-            StateHasChanged();
+            AnimalsList.Add(AnimalToAdd);
             NavManager.NavigateTo("/");
         }
     }

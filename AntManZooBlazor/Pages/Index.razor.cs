@@ -8,17 +8,10 @@ namespace AntManZooBlazor.Pages
     {
         [Inject]
         public IAnimalService AnimalService { get; set; }
-        private string? LoadingMessage { get; set; }
-        [Parameter]
-        public List<Animal> AnimalsList { get; set; } = new List<Animal>();
 
-        protected override async Task OnInitializedAsync()
-        {
-            LoadingMessage = "Récupération des données des animaux";
-            AnimalsList = await AnimalService.GetAll();
-            LoadingMessage = "";
-        }
-        
+        [CascadingParameter(Name = "animalsList")]
+        public List<Animal> AnimalsList { get; set; }
+
         public void Delete(int id)
         {
             AnimalService.Delete(id);

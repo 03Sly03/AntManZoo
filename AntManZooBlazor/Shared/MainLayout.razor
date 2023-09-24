@@ -1,4 +1,6 @@
-﻿@inherits LayoutComponentBase
+﻿@using AntManZooBlazor.Services;
+@using AntManZooClassLibrary.Models;
+@inherits LayoutComponentBase;
 
 <div class="page">
     <div class="sidebar">
@@ -11,7 +13,31 @@
         </div>
 
         <article class="content px-4">
-            @Body
+            @if(!AnimalsList.Any())
+            {
+                <h2>@LoadingMessage</h2>
+            }
+            else
+            {
+                <CascadingValue Value="@AnimalsList" Name="animalsList">
+                        @Body
+                </CascadingValue>
+            }
         </article>
     </main>
 </div>
+
+@code{
+    private string? LoadingMessage { get; set; }
+
+    [Inject]
+    public IAnimalService AnimalService { get; set; }
+    public List<Animal> AnimalsList { get; set; } = new List<Animal>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        LoadingMessage = "Récupération des données des animaux...";
+        AnimalsList = await AnimalService.GetAll();
+        LoadingMessage = "";
+    }
+}
