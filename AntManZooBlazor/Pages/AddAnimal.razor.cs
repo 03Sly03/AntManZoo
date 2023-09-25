@@ -1,6 +1,7 @@
 ﻿using AntManZooBlazor.Services;
 using AntManZooClassLibrary.Models;
 using Microsoft.AspNetCore.Components;
+using System.Linq;
 
 namespace AntManZooBlazor.Pages
 {
@@ -14,11 +15,13 @@ namespace AntManZooBlazor.Pages
 
         private Animal? AnimalToAdd { get; set; } = new Animal();
 
-        private void SubmitAnimal()
+        private async void SubmitAnimal()
         {
             if (AnimalToAdd != null)
             {
-                AnimalService.Post(AnimalToAdd);
+                await AnimalService.Post(AnimalToAdd);
+                List<Animal> animals = await AnimalService.GetAll();
+                AnimalToAdd.Id = animals.Last().Id;
                 AnimalsList.Add(AnimalToAdd);
                 NavManager.NavigateTo("/");
             }

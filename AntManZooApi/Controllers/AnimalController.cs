@@ -34,7 +34,7 @@ namespace AntManZooApi.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> AddAnimal([FromBody] Animal animal)
         {
             var animalId = await _animalRepository.Add(animal);
@@ -46,7 +46,7 @@ namespace AntManZooApi.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> UpdateAnimal(int id, [FromBody] Animal animal)
         {
             var pizz = await _animalRepository.GetById(id);
@@ -61,7 +61,7 @@ namespace AntManZooApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> RemoveAnimal(int id)
         {
             var animal = await _animalRepository.GetById(id);
