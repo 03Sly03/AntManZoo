@@ -8,6 +8,7 @@ using AntManZooClassLibrary.Models;
 using AntManZooApi.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 
 namespace AntManZooApi.Extensions
 {
@@ -109,14 +110,14 @@ namespace AntManZooApi.Extensions
                 // elle permettent d'élaborer des stratégies plus complexe pour l'authorization
                 // pour cette application les rôles suffisent
 
-                //options.AddPolicy(Constants.PolicyAdmin, police =>
-                //{
-                //    police.RequireClaim(ClaimTypes.Role, Constants.RoleAdmin);
-                //});
-                //options.AddPolicy(Constants.PolicyUser, police =>
-                //{
-                //    police.RequireClaim(ClaimTypes.Role, Constants.RoleUser);
-                //});
+                options.AddPolicy(Constants.PolicyAdmin, police =>
+                {
+                    police.RequireClaim(ClaimTypes.Role, Constants.RoleAdmin);
+                });
+                options.AddPolicy(Constants.PolicyUser, police =>
+                {
+                    police.RequireClaim(ClaimTypes.Role, Constants.RoleUser);
+                });
             });
         }
     }

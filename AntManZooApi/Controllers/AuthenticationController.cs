@@ -14,6 +14,7 @@ namespace AntManZooApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
     public class AuthenticationController : ControllerBase
     {
         private readonly IRepository<Staff> _staffRepository;
@@ -27,7 +28,6 @@ namespace AntManZooApi.Controllers
         }
 
         [HttpPost("[action]")]
-        [Authorize]
         public async Task<IActionResult> Register([FromBody] Staff staff)
         {
             if (await _staffRepository.Get(u => u.Email == staff.Email) != null)
