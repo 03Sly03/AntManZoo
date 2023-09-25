@@ -37,7 +37,7 @@ namespace AntManZooApi.Controllers
             // pour restreindre la création d'admins : isAdmin = false
 
             if (await _staffRepository.Add(staff) > 0)
-                return Ok("Personnel ajouté");
+                return Ok(new { id = staff.Id, Message = "Personnel ajouté" });
             return BadRequest("Something went wrong...");
         }
 
