@@ -5,7 +5,6 @@
 
 <h2>Ajouter un animal</h2>
 
-
 <EditForm OnValidSubmit="SubmitAnimal" Model="AnimalToAdd">
     <div class="form-row">
         <div class="form-group" style="width:100%">
@@ -47,22 +46,3 @@
     </div>
 </EditForm>
 
-@code {
-    [Inject]
-    public IAnimalService AnimalService { get; set; }
-
-    [CascadingParameter(Name = "animalsList")]
-    public List<Animal> AnimalsList { get; set; }
-
-    private Animal? AnimalToAdd { get; set; } = new Animal();
-
-    private void SubmitAnimal()
-    {
-        if (AnimalToAdd != null)
-        {
-            AnimalService.Post(AnimalToAdd);
-            AnimalsList.Add(AnimalToAdd);
-            NavManager.NavigateTo("/");
-        }
-    }
-}

@@ -1,7 +1,6 @@
-﻿using AntManZooClassLibrary.Validators;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace AntManZooApi.DTOs
+namespace AntManZooClassLibrary.DTOs
 {
     public class LoginRequestDTO
     {
@@ -9,7 +8,7 @@ namespace AntManZooApi.DTOs
         [RegularExpression(@"^[^@\s]+@[^@\s]+\.[^@\s]+$", ErrorMessage = "Invalid email address")]
         public string? Email { get; set; }
         [Required]
-        [PasswordValidator]
+        //[PasswordValidator]
         public string? Password { get; set; }
     }
 }
