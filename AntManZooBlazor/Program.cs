@@ -11,5 +11,6 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 
 //builder.Services.AddSingleton<IAnimalService, FakeDBAnimalService>();
 builder.Services.AddScoped<IAnimalService, APIAnimalService>();
+builder.Services.AddScoped<IStaffService, ApiStaffService>();
 
 await builder.Build().RunAsync();

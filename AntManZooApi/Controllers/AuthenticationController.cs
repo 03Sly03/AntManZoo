@@ -1,4 +1,4 @@
-﻿using AntManZooApi.DTOs;
+﻿using AntManZooClassLibrary.DTOs;
 using AntManZooApi.Helpers;
 using AntManZooApi.Repositories;
 using AntManZooClassLibrary.Models;
@@ -27,6 +27,7 @@ namespace AntManZooApi.Controllers
         }
 
         [HttpPost("[action]")]
+        [Authorize]
         public async Task<IActionResult> Register([FromBody] Staff staff)
         {
             if (await _staffRepository.Get(u => u.Email == staff.Email) != null)
@@ -47,7 +48,7 @@ namespace AntManZooApi.Controllers
 
             var user = await _staffRepository.Get(u => u.Email == login.Email && u.Password == login.Password);
 
-            if (user == null) return BadRequest("Authentification invalide!");
+            if (user == null) return NotFound("Personnel inconnu !");
 
             //JWT
             List<Claim> claims = new List<Claim>()
