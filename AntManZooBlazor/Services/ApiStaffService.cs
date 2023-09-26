@@ -27,6 +27,33 @@ namespace AntManZooBlazor.Services
             return result.IsSuccessStatusCode;
         }
 
+        public async Task<Staff?> Get(int id)
+        {
+            return await _httpClient.GetFromJsonAsync<Staff>(_baseApiRoute + $"/{id}");
+        }
+
+        public Task<List<Staff>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> Post(Staff staff)
+        {
+            var result = await _httpClient.PostAsJsonAsync(_baseApiRoute + "/Register", staff);
+            return result.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> Put(Staff staff)
+        {
+            var result = await _httpClient.PutAsJsonAsync(_baseApiRoute + $"/{staff.Id}", staff);
+            return result.IsSuccessStatusCode;
+        }
+
+        public Task<bool> Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         //public async Task<T> GetItem<T>(string key)
         //{
         //    var json = await _jsRuntime.InvokeAsync<string>("localStorage.getItem", key);

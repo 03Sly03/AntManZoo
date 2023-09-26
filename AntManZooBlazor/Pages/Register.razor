@@ -3,6 +3,7 @@
 @using AntManZooClassLibrary.DTOs;
 @using AntManZooClassLibrary.Models;
 @using AntManZooBlazor.Services;
+@inject NavigationManager NavManager;
 
 
 <section class="vh-100 bg-image"
@@ -15,41 +16,44 @@
                         <div class="card-body p-5">
                             <h2 class="text-uppercase text-center mb-5">Créer un compte</h2>
 
-                            <form>
+                            <EditForm OnValidSubmit="SubmitStaff" Model="StaffToAdd">
 
-                                <div class="form-outline mb-4">
-                                    <input type="text" id="Firstname" class="form-control form-control-lg" placeholder="Prénom" />
-                                    <label class="form-label" for="Firstname">Votre prénom</label>
-                                </div>
+                                <form>
 
-                                <div class="form-outline mb-4">
-                                    <input type="text" id="Lastname" class="form-control form-control-lg" placeholder="Nom" />
-                                    <label class="form-label" for="Lastname">Votre nom de famille</label>
-                                </div>
+                                    <div class="form-outline mb-4">
+                                        <InputText class="form-control form-control-lg" id="Firstname"@bind-Value="StaffToAdd!.Firstname" />
+                                        <label class="form-label" for="Firstname">Votre prénom</label>
+                                    </div>
 
-                                <div class="form-outline mb-4">
-                                    <input type="email" id="Email" class="form-control form-control-lg" placeholder="Email" />
-                                    <label class="form-label" for="Email">Votre adresse mail</label>
-                                </div>
+                                    <div class="form-outline mb-4">
+                                        <InputText class="form-control form-control-lg" id="Lastname"@bind-Value="StaffToAdd!.Lastname" />
+                                        <label class="form-label" for="Lastname">Votre nom de famille</label>
+                                    </div>
 
-                                <div class="form-outline mb-4">
-                                    <input type="password" id="Password" class="form-control form-control-lg" placeholder="********" />
-                                    <label class="form-label" for="Password">Password</label>
-                                </div>
+                                    <div class="form-outline mb-4">
+                                        <InputText class="form-control form-control-lg" id="Email"@bind-Value="StaffToAdd!.Email" />
+                                        <label class="form-label" for="Email">Votre adresse mail</label>
+                                    </div>
 
-                                <div class="d-flex justify-content-center">
-                                    <button type="button"
-                                            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
-                                        S'inscrire
-                                    </button>
-                                </div>
+                                    <div class="form-outline mb-4">
+                                        <InputText class="form-control form-control-lg" id="Password"@bind-Value="StaffToAdd!.Password" />
+                                        <label class="form-label" for="Password">Password</label>
+                                    </div>
 
-                                <p class="text-center text-muted mt-5 mb-0">
-                                    Vous avez déjà un compte ? <a href="login"
-                                                                class="fw-bold text-body"><u>Connectez vous ici</u></a>
-                                </p>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="submit"
+                                                class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
+                                            S'inscrire
+                                        </button>
+                                    </div>
 
-                            </form>
+                                    <p class="text-center text-muted mt-5 mb-0">
+                                        Vous avez déjà un compte ? <a href="login"
+                                                                      class="fw-bold text-body"><u>Connectez vous ici</u></a>
+                                    </p>
+
+                                </form>
+                            </EditForm>
 
                         </div>
                     </div>
@@ -59,6 +63,3 @@
     </div>
 </section>
 
-@code {
-
-}
