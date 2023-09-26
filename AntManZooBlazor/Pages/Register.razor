@@ -18,26 +18,25 @@
 
                             <EditForm OnValidSubmit="SubmitStaff" Model="StaffToAdd">
 
-                                <form>
 
                                     <div class="form-outline mb-4">
-                                        <InputText class="form-control form-control-lg" id="Firstname"@bind-Value="StaffToAdd!.Firstname" />
-                                        <label class="form-label" for="Firstname">Votre prénom</label>
+                                        <InputText class="form-control form-control-lg" id="firstname"@bind-Value="StaffToAdd!.Firstname" />
+                                        <label class="form-label" for="firstname">Votre prénom</label>
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <InputText class="form-control form-control-lg" id="Lastname"@bind-Value="StaffToAdd!.Lastname" />
-                                        <label class="form-label" for="Lastname">Votre nom de famille</label>
+                                        <InputText class="form-control form-control-lg" id="lastname"@bind-Value="StaffToAdd!.Lastname" />
+                                        <label class="form-label" for="lastname">Votre nom de famille</label>
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <InputText class="form-control form-control-lg" id="Email"@bind-Value="StaffToAdd!.Email" />
-                                        <label class="form-label" for="Email">Votre adresse mail</label>
+                                        <InputText class="form-control form-control-lg" id="email"@bind-Value="StaffToAdd!.Email" />
+                                        <label class="form-label" for="email">Votre adresse mail</label>
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <InputText class="form-control form-control-lg" id="Password"@bind-Value="StaffToAdd!.Password" />
-                                        <label class="form-label" for="Password">Password</label>
+                                        <InputText class="form-control form-control-lg" id="password"@bind-Value="StaffToAdd!.Password" />
+                                        <label class="form-label" for="password">Password</label>
                                     </div>
 
                                     <div class="d-flex justify-content-center">
@@ -52,7 +51,6 @@
                                                                       class="fw-bold text-body"><u>Connectez vous ici</u></a>
                                     </p>
 
-                                </form>
                             </EditForm>
 
                         </div>

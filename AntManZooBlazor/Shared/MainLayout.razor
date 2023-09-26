@@ -20,7 +20,9 @@
             else
             {
                 <CascadingValue Value="@AnimalsList" Name="animalsList">
-                    @Body
+                    <CascadingValue Value="@StaffsList" Name="staffsList">
+                        @Body
+                    </CascadingValue>
                 </CascadingValue>
             }
         </article>
@@ -33,6 +35,7 @@
     [Inject]
     public IAnimalService AnimalService { get; set; }
     public List<Animal> AnimalsList { get; set; } = new List<Animal>();
+    public List<Staff> StaffsList { get; set; } = new List<Staff>();
 
     protected override async Task OnInitializedAsync()
     {
