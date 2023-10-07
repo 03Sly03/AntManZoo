@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
+using System.Net.Http.Headers;
 
 namespace AntManZooBlazor.Services
 {
@@ -24,13 +25,30 @@ namespace AntManZooBlazor.Services
             _localStorage = localStorageService;
         }
 
-        public async Task<bool> PostLogin(LoginRequestDTO staffDTO)
+        public async Task<LoginResponseDTO> PostLogin(LoginRequestDTO staffDTO)
         {
-            var result = await _httpClient.PostAsJsonAsync(_baseApiRouteAuth + "/login", staffDTO);
-            var token = await result.Content.ReadAsStringAsync();
-            await Console.Out.WriteLineAsync("le token : " + token.ToString());
-            await _localStorage.SetItemAsync("token", token);
-            return result.IsSuccessStatusCode;
+            var requestJson = JsonContent.Create(staffDTO);
+            var response = await _httpClient.PostAsync(_baseApiRouteAuth + "/login", requestJson);
+            var loginResponse = new LoginResponseDTO();
+
+            if (!response.IsSuccessStatusCode || response.StatusCode == System.Net.HttpStatusCode.NoContent)
+                return loginResponse;
+
+            loginResponse.Success = true;
+            loginResponse.JWTToken = await response.Content.ReadAsStringAsync();
+            loginResponse.JWTToken = loginResponse.JWTToken.Trim('"');
+
+            await _localStorage.SetItemAsync("token", loginResponse.JWTToken);
+
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", loginResponse.JWTToken);
+
+            return loginResponse;
+        }
+
+        public async Task Logout()
+        {
+            await _localStorage.RemoveItemAsync("authToken");
+            _httpClient.DefaultRequestHeaders.Authorization = null;
         }
 
         public async Task<Staff?> Get(int id)
