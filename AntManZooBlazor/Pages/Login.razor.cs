@@ -1,6 +1,7 @@
 ﻿using AntManZooClassLibrary.DTOs;
 using AntManZooBlazor.Services;
 using Microsoft.AspNetCore.Components;
+using Blazored.LocalStorage;
 
 namespace AntManZooBlazor.Pages
 {
@@ -16,8 +17,8 @@ namespace AntManZooBlazor.Pages
             if (StaffToAdd != null)
             {
                 
-                var staffData = StaffService.PostLogin(StaffToAdd);
-                Console.WriteLine("le staffData: " + staffData);
+                var token = StaffService.PostLogin(StaffToAdd);
+                Console.WriteLine("le staffData: " + token);
                 //NavManager.NavigateTo("/");
             }
         }
